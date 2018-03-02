@@ -15,13 +15,13 @@ time_start = 100;
 
 
 fileID = fopen('pseudo_eeg_data.txt','w');
-fprintf(fileID,'%6s %12s %18s %24s %30s \n','Trial', 'Hit/Miss', 'Channel','Time', 'Voltage');
+fprintf(fileID,'%3s, %6s, %9s, %12s, %15s \n','Trial', 'Hit/Miss', 'Channel','Time', 'Voltage');
 for t = 1: trials
     acc = randi([0,1],1,1);
     for c = 1: channel
         for r = time_start: time_intervals:10000
             randVoltage = randi([0,voltRange],1,1);
-            fprintf(fileID, '%6i %12i %18i %24i %30f \n', t, acc,  c, r, randVoltage); 
+            fprintf(fileID, '%3i, %6i, %9i, %12i, %15f \n', t, acc,  c, r, randVoltage); 
         end
     end
 end
