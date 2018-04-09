@@ -6,6 +6,45 @@ scenes = ["office", "city", "forest", "house"]
 objects = ["lizard", "toothbrush", "ribs", "piggy bank", "teddy bear", "car", "football", "salad"]
 conditions = ["VAL", "INVAL", "REQ", "NEU"]
 
+class Trial:
+    def __init__(self, firstCue, secondCue, ti_one, ti_two):
+        self.firstCue = firstCue
+        self.secondCue = secondCue
+        self.ti_one = ti_one
+        self.ti_two = ti_two
+        
+    #trial 1,2,3: encoding, retrieval, etc
+    def set_trial_type(trial_type):
+        self.trial_type = trial_type
+
+    def get_trial_type(trial_type):
+        return self.trial_type
+
+    def set_interval_times(cue, cue_stim, stim_pres, resp):
+        self.cue = cue
+        self.cue_stim = cue_stim
+        self.stim_pres = stim_pres
+        self.resp = resp
+
+    def get_total_time():
+        return self.cue + self.cue_stim + self.stim_pres + self.resp
+
+    def get_interval_times():
+        return [self.cue, self.cue_stim, self.stim_pres, self.resp]
+
+    def match(answer, key):
+        return answer == key
+
+    #valid, invalid, required, or neutral
+    def set_condition(condition):
+        self.condition = condition
+
+    def get_condition():
+        return self.condition
+
+    
+
+
 
 
 def removeCharacters(charArray, array):
@@ -28,8 +67,8 @@ def scene_to_object(o, s, t):
 so_one = scene_to_object(objects[2], scenes[1], 45)
 so_two = scene_to_object(objects[4], scenes[3], 116)
 
-print("s-o pair one: ", so_one)
-print("s-o pair two: ", so_two)
+#print("s-o pair one: ", so_one)
+#print("s-o pair two: ", so_two)
 
 
     
@@ -127,8 +166,8 @@ noMatch = validQ("forest", "tree")
 associatedValNoMatch = que_to_context(noMatch)
 match = validQ("forest", "forest")
 associatedValMatch = que_to_context(match)
-print(associatedValNoMatch)
-print(associatedValMatch)
+#print(associatedValNoMatch)
+#print(associatedValMatch)
         
 
 
@@ -138,10 +177,10 @@ object_to_ix = attribute_to_index(objects)
 condition_to_ix = attribute_to_index(conditions)
 
 
-print("Color to Index Dict: ", color_to_ix)
-print("Scene to Index Dict: ", scene_to_ix)
-print("Object to Index Dict: ", object_to_ix)
-print("Condition to Index Dict: ", condition_to_ix)
+#print("Color to Index Dict: ", color_to_ix)
+#print("Scene to Index Dict: ", scene_to_ix)
+#print("Object to Index Dict: ", object_to_ix)
+#print("Condition to Index Dict: ", condition_to_ix)
 
 
 
